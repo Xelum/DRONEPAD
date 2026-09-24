@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#05070a" />
+  <title>Dronepad HQ — Project Command Center</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="ambient"></canvas>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand-mini">
+      <img src="assets/dronepad-logo.png" alt="Dronepad Italy" />
+      <div>
+        <strong>DRONEPAD HQ</strong>
+        <span>Project Command Center</span>
+      </div>
+    </div>
+
+    <nav class="nav" id="mainNav">
+      <button class="nav-item active" data-section="command"><span>01</span> Command Center</button>
+      <button class="nav-item" data-section="project"><span>02</span> Project</button>
+      <button class="nav-item" data-section="ip"><span>03</span> IP & Patents</button>
+      <button class="nav-item" data-section="prototype"><span>04</span> Prototype</button>
+      <button class="nav-item" data-section="investors"><span>05</span> Investors CRM</button>
+      <button class="nav-item" data-section="partners"><span>06</span> Partners</button>
+      <button class="nav-item" data-section="market"><span>07</span> Market Intel</button>
+      <button class="nav-item" data-section="regulatory"><span>08</span> Regulatory</button>
+      <button class="nav-item" data-section="dataroom"><span>09</span> Data Room</button>
+      <button class="nav-item" data-section="tasks"><span>10</span> Tasks</button>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="security-dot"></div>
+      <span>Local MVP · v0.1</span>
+    </div>
+  </aside>
+
+  <main class="shell">
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle" aria-label="Apri menu">☰</button>
+      <div class="crumb"><span>DRONEPAD</span> / <b id="crumbTitle">COMMAND CENTER</b></div>
+      <div class="top-actions">
+        <span class="live-pill"><i></i> PROJECT LIVE</span>
+        <button class="ghost" id="exportBtn">Export JSON</button>
+      </div>
+    </header>
+
+    <section class="page active" id="command">
+      <div class="hero">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">FROM PROTECTED IP TO OPERATING INFRASTRUCTURE</span>
+          <h1>Build the first<br><em>real Dronepad.</em></h1>
+          <p>Un unico centro operativo per trasformare brevetti, know-how e mercato in prototipo, sito pilota, capitale e industrializzazione.</p>
+          <div class="hero-actions">
+            <button class="primary" data-jump="investors">Open Investor Pipeline ↗</button>
+            <button class="secondary" data-jump="prototype">Prototype Readiness</button>
+          </div>
+        </div>
+        <div class="hero-visual reveal delay-1">
+          <div class="orbital">
+            <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+            <div class="core"><span>DP</span></div>
+            <div class="orbital-label l1">IP</div>
+            <div class="orbital-label l2">CAPITAL</div>
+            <div class="orbital-label l3">PROTOTYPE</div>
+            <div class="orbital-label l4">MARKET</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="metric-grid reveal delay-2">
+        <article class="metric"><span>IP COVERAGE</span><strong>IT + US</strong><small>Patent assets loaded</small></article>
+        <article class="metric"><span>PROJECT STAGE</span><strong>Pre-Prototype</strong><small>Execution focus</small></article>
+        <article class="metric"><span>CRM PROSPECTS</span><strong id="metricProspects">10</strong><small id="metricVerified">5 verified / high-priority</small></article>
+        <article class="metric"><span>NORTH STAR</span><strong>1st Pilot</strong><small>Physical demonstrator</small></article>
+      </div>
+
+      <div class="dashboard-grid">
+        <article class="panel reveal">
+          <div class="panel-head"><div><span class="kicker">EXECUTION</span><h2>Critical path</h2></div><span class="tag neutral">MVP</span></div>
+          <div class="path-list" id="criticalPath"></div>
+        </article>
+
+        <article class="panel image-panel reveal delay-1">
+          <img src="assets/dronepad-night.jpg" alt="Dronepad render notturno" />
+          <div class="image-overlay">
+            <span class="kicker">VISION</span>
+            <h2>Infrastructure before scale.</h2>
+            <p>Il primo obiettivo non è vendere una rete globale: è rendere dimostrabile, autorizzabile e finanziabile il primo nodo.</p>
+          </div>
+        </article>
+      </div>
+
+      <article class="panel reveal">
+        <div class="panel-head"><div><span class="kicker">ROADMAP</span><h2>Six gates to market</h2></div><span class="tag accent">2026 →</span></div>
+        <div class="roadmap" id="roadmap"></div>
+      </article>
+    </section>
+
+    <section class="page" id="project">
+      <div class="page-title reveal"><span class="eyebrow">PROJECT DEFINITION</span><h1>Dronepad, in one frame.</h1><p>La versione operativa del progetto: cosa esiste, cosa manca e cosa dobbiamo dimostrare.</p></div>
+      <div class="split-grid">
+        <article class="panel reveal">
+          <span class="kicker">CORE CONCEPT</span>
+          <h2>Modular landing infrastructure for vertical-flight aircraft</h2>
+          <p class="lead">Dronepad è concepito come infrastruttura integrata e modulare per operazioni di decollo/atterraggio verticale, inserita nell'ecosistema Advanced Air Mobility.</p>
+          <div class="fact-list">
+            <div><b>Positioning</b><span>Infrastructure / Vertiport / AAM</span></div>
+            <div><b>Current state</b><span>Protected IP + industrial plan + market deck</span></div>
+            <div><b>Primary gap</b><span>Physical prototype + validation + pilot site</span></div>
+            <div><b>Commercial horizon</b><span>Industrialization and international rollout</span></div>
+          </div>
+        </article>
+        <article class="panel media-card reveal delay-1">
+          <img src="assets/dronepad-aerial.png" alt="Vista aerea Dronepad" />
+          <div class="caption">Concept render — material from Dronepad presentation</div>
+        </article>
+      </div>
+
+      <div class="three-grid">
+        <article class="panel"><span class="kicker">WHAT WE HAVE</span><h3>Protected technology</h3><p>Italian patent, US patent, engineering concept, business plan and updated market presentation.</p></article>
+        <article class="panel"><span class="kicker">WHAT WE NEED</span><h3>Proof in the real world</h3><p>Technical freeze, BOM, supplier quotes, pilot location, permissions, prototype budget and validation plan.</p></article>
+        <article class="panel"><span class="kicker">WHAT CAPITAL UNLOCKS</span><h3>De-risking milestones</h3><p>Capital should be linked to measurable milestones instead of a generic headline funding request.</p></article>
+      </div>
+    </section>
+
+    <section class="page" id="ip">
+      <div class="page-title reveal"><span class="eyebrow">INTELLECTUAL PROPERTY</span><h1>IP is an asset.<br>Make it diligence-ready.</h1></div>
+      <div class="patent-grid">
+        <article class="patent-card reveal">
+          <div class="patent-top"><span class="country">IT</span><span class="tag good">GRANTED</span></div>
+          <h2>Italian Patent</h2>
+          <dl>
+            <div><dt>Application</dt><dd>102020000012313</dd></div>
+            <div><dt>Inventor</dt><dd>Emanuele Angeli</dd></div>
+            <div><dt>Holder</dt><dd>Helidecks S.r.l.</dd></div>
+            <div><dt>Filed</dt><dd>26 May 2020</dd></div>
+            <div><dt>Granted</dt><dd>15 Jun 2022</dd></div>
+          </dl>
+        </article>
+        <article class="patent-card reveal delay-1">
+          <div class="patent-top"><span class="country">US</span><span class="tag good">GRANTED</span></div>
+          <h2>US Patent</h2>
+          <dl>
+            <div><dt>Patent no.</dt><dd>US 12,018,445 B2</dd></div>
+            <div><dt>Inventor</dt><dd>Emanuele Angeli</dd></div>
+            <div><dt>Assignee</dt><dd>Helidecks S.r.l.</dd></div>
+            <div><dt>PCT</dt><dd>PCT/IB2021/054529</dd></div>
+            <div><dt>Granted</dt><dd>25 Jun 2024</dd></div>
+          </dl>
+        </article>
+      </div>
+      <article class="panel warning-panel reveal">
+        <span class="kicker">DUE DILIGENCE OPEN POINT</span>
+        <h2>IP vehicle / investment vehicle alignment</h2>
+        <p>Prima di un fundraising strutturato va definito in modo chiaro il rapporto tra Helidecks S.r.l., il brevetto e l'eventuale società che riceverà l'investimento: titolarità, licenza, conferimento o altra struttura da definire con consulenza legale.</p>
+      </article>
+    </section>
+
+    <section class="page" id="prototype">
+      <div class="page-title reveal"><span class="eyebrow">PROTOTYPE READINESS</span><h1>Turn the concept into a build plan.</h1><p>Qui costruiamo il vero fabbisogno finanziario del primo prototipo.</p></div>
+      <div class="progress-shell reveal">
+        <div class="progress-head"><span>Prototype readiness</span><b id="prototypePct">18%</b></div>
+        <div class="progress-bar"><i id="prototypeBar"></i></div>
+      </div>
+      <div class="checklist" id="prototypeChecklist"></div>
+      <article class="panel reveal">
+        <div class="panel-head"><div><span class="kicker">USE OF FUNDS</span><h2>Funding should follow evidence</h2></div><span class="tag neutral">TO BE QUANTIFIED</span></div>
+        <div class="fund-grid" id="fundGrid"></div>
+      </article>
+    </section>
+
+    <section class="page" id="investors">
+      <div class="page-title compact reveal"><div><span class="eyebrow">CAPITAL & ECOSYSTEM CRM</span><h1>Investor pipeline.</h1><p>Ogni nome deve avere una ragione, una fonte e una prossima azione.</p></div><button class="primary" id="addInvestorBtn">+ Add prospect</button></div>
+
+      <div class="filters reveal">
+        <input id="investorSearch" type="search" placeholder="Search investor, type, rationale…" />
+        <select id="typeFilter"><option value="all">All types</option></select>
+        <select id="statusFilter"><option value="all">All stages</option></select>
+      </div>
+
+      <div class="crm-wrap reveal">
+        <table class="crm-table">
+          <thead><tr><th>Prospect</th><th>Type</th><th>Evidence / fit</th><th>Verification</th><th>Stage</th><th>Next action</th></tr></thead>
+          <tbody id="investorRows"></tbody>
+        </table>
+      </div>
+
+      <article class="panel reveal">
+        <div class="panel-head"><div><span class="kicker">PIPELINE</span><h2>Stage distribution</h2></div></div>
+        <div class="pipeline" id="pipeline"></div>
+      </article>
+    </section>
+
+    <section class="page" id="partners">
+      <div class="page-title reveal"><span class="eyebrow">STRATEGIC PARTNERS</span><h1>Capital is only one piece.</h1><p>Per arrivare al prototipo servono soggetti con competenze, infrastrutture, autorizzazioni e accesso al mercato.</p></div>
+      <div class="partner-grid" id="partnerGrid"></div>
+    </section>
+
+    <section class="page" id="market">
+      <div class="page-title reveal"><span class="eyebrow">MARKET INTELLIGENCE</span><h1>Read the ecosystem,<br>not just the market size.</h1></div>
+      <div class="split-grid">
+        <article class="panel media-card reveal"><img src="assets/vertiport-night.jpg" alt="Vertiport" /><div class="caption">AAM infrastructure concept imagery</div></article>
+        <article class="panel reveal delay-1">
+          <span class="kicker">CURRENT PROJECT FRAMING</span>
+          <h2>AAM is an interconnected ecosystem</h2>
+          <p class="lead">Velivoli, infrastrutture, operatori, ricarica, spazio aereo, servizi a terra e autorizzazioni devono evolvere in parallelo.</p>
+          <ul class="clean-list"><li>Passenger routes</li><li>Cargo & last-mile logistics</li><li>Air Taxi / on-demand mobility</li><li>Infrastructure & vertiport networks</li></ul>
+        </article>
+      </div>
+      <article class="panel reveal">
+        <span class="kicker">DRONEPAD CURRENT SITE — TECHNICAL POSITIONING</span>
+        <div class="metric-grid four-tight">
+          <div class="mini-metric"><b>≥ 200 m²</b><span>Minimum walkable space stated on current website</span></div>
+          <div class="mini-metric"><b>3 m</b><span>Touchdown deck elevation stated on current website</span></div>
+          <div class="mini-metric"><b>13 m</b><span>Touchdown deck diameter stated on current website</span></div>
+          <div class="mini-metric"><b>13 m</b><span>Aircraft length stated on current website</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="page" id="regulatory">
+      <div class="page-title reveal"><span class="eyebrow">REGULATORY TRACK</span><h1>Make regulation a workstream,<br>not a late-stage obstacle.</h1></div>
+      <div class="reg-list" id="regList"></div>
+    </section>
+
+    <section class="page" id="dataroom">
+      <div class="page-title reveal"><span class="eyebrow">DATA ROOM</span><h1>One source of truth.</h1><p>Nel deployment reale i file sensibili dovranno stare in storage privato, non nel repository pubblico.</p></div>
+      <div class="document-grid" id="documentGrid"></div>
+      <article class="panel reveal warning-panel"><span class="kicker">SECURITY</span><h2>Do not publish confidential diligence documents on GitHub Pages.</h2><p>Questa v0.1 contiene solo metadati. Nella fase successiva collegheremo autenticazione e storage privato (es. Supabase) per business plan, NDA, cap table, preventivi e documenti riservati.</p></article>
+    </section>
+
+    <section class="page" id="tasks">
+      <div class="page-title compact reveal"><div><span class="eyebrow">EXECUTION BOARD</span><h1>Next actions.</h1><p>Il progetto avanza quando ogni open point ha owner, scadenza e output.</p></div><button class="primary" id="addTaskBtn">+ Add task</button></div>
+      <div class="task-board" id="taskBoard"></div>
+    </section>
+  </main>
+
+  <dialog id="investorDialog" class="dialog">
+    <form method="dialog" id="investorForm">
+      <div class="dialog-head"><h2>Add prospect</h2><button value="cancel">×</button></div>
+      <label>Name<input name="name" required /></label>
+      <label>Type<select name="type"><option>VC</option><option>Corporate VC</option><option>Incubator / Accelerator</option><option>Technology Transfer</option><option>Public / Export Finance</option><option>Advisor</option><option>Family Office</option><option>Industrial Partner</option></select></label>
+      <label>Why it matters<textarea name="fit" rows="3" required></textarea></label>
+      <label>Stage<select name="stage"><option>Research</option><option>Qualified</option><option>Contacted</option><option>Meeting</option><option>NDA / DD</option><option>Term Sheet</option></select></label>
+      <label>Next action<input name="next" placeholder="e.g. identify partner / send teaser" /></label>
+      <menu><button value="cancel" class="secondary">Cancel</button><button value="default" class="primary" id="saveInvestor">Save</button></menu>
+    </form>
+  </dialog>
+
+  <dialog id="taskDialog" class="dialog">
+    <form method="dialog" id="taskForm">
+      <div class="dialog-head"><h2>Add task</h2><button value="cancel">×</button></div>
+      <label>Task<input name="title" required /></label>
+      <label>Workstream<select name="stream"><option>Prototype</option><option>Fundraising</option><option>IP / Legal</option><option>Market</option><option>Regulatory</option><option>Data Room</option></select></label>
+      <label>Status<select name="status"><option>Now</option><option>Next</option><option>Waiting</option><option>Done</option></select></label>
+      <menu><button value="cancel" class="secondary">Cancel</button><button value="default" class="primary" id="saveTask">Save</button></menu>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
