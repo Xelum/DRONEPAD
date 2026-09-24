@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#02070c" />
+  <meta name="description" content="Dronepad Investor Hub — home hub e pipeline investitori." />
+  <title>Dronepad Investor Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="dashboard">
+  <div class="ambient" aria-hidden="true">
+    <span class="glow glow-a"></span>
+    <span class="glow glow-b"></span>
+    <span class="flare flare-a"></span>
+    <span class="flare flare-b"></span>
+  </div>
+  <div class="neon-rain" aria-hidden="true">
+    <span class="fall f1"></span>
+    <span class="fall f2"></span>
+    <span class="fall f3"></span>
+  </div>
+
+  <header class="app-header">
+    <a class="brand" href="index.html">
+      <img src="assets/dronepad-logo.png" alt="Dronepad Italy" />
+      <div><strong>DRONEPAD</strong><span>Investor Hub</span></div>
+    </a>
+    <nav class="top-nav">
+      <a class="active" href="index.html" data-i18n="nav.dashboard">Dashboard</a>
+      <a href="pipeline.html" data-i18n="nav.pipeline">Pipeline investitori</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch">
+        <button data-lang="it" class="active">IT</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <button class="ghost-btn" id="backupBtn" data-i18n="actions.backup">Backup dati</button>
+    </div>
+  </header>
+
+  <main class="app-main dashboard-main">
+    <section class="hub-hero reveal">
+      <div class="hub-copy">
+        <span class="eyebrow" data-i18n="dashboard.eyebrow">INVESTOR RELATIONS / MISSION CONTROL</span>
+        <h1 class="glow-headline" data-i18n-html="dashboard.title">DRONEPAD.<br><span class="neon-text">INVESTOR HUB.</span></h1>
+        <p class="lead" data-i18n="dashboard.intro">Una home introduttiva e immersiva da cui entrare subito nella pipeline investitori, leggere lo stato del lavoro e mostrare in modo chiaro dove sta andando il progetto.</p>
+
+        <div class="hero-cta-row">
+          <a class="primary-btn" href="pipeline.html" data-i18n="dashboard.openPipeline">Apri pipeline</a>
+          <a class="secondary-btn" href="#overview-block" data-i18n="dashboard.scrollIntro">Scopri l'hub</a>
+        </div>
+
+        <div class="hero-mini-points reveal">
+          <div class="mini-point"><span>01</span><b data-i18n="dashboard.point1">Hub centrale del progetto</b></div>
+          <div class="mini-point"><span>02</span><b data-i18n="dashboard.point2">Pipeline investitori in dettaglio</b></div>
+          <div class="mini-point"><span>03</span><b data-i18n="dashboard.point3">Attività, follow-up e risultati</b></div>
+        </div>
+      </div>
+
+      <div class="hub-visual reveal">
+        <div class="visual-frame visual-main">
+          <img src="assets/hero-vertiport.png" alt="Concept art Dronepad" />
+          <div class="frame-caption">
+            <span>DRONEPAD VISION</span>
+            <b data-i18n="dashboard.visual1">Infrastruttura, mobilità, prototipo.</b>
+          </div>
+        </div>
+        <div class="floating-thumb thumb-a">
+          <img src="assets/hero-drone.png" alt="Drone concept" />
+        </div>
+        <div class="floating-thumb thumb-b">
+          <img src="assets/hero-orbital.png" alt="Orbital concept" />
+        </div>
+      </div>
+    </section>
+
+    <section class="marquee-band reveal" aria-hidden="true">
+      <div class="marquee-track">
+        <span>DRONEPAD</span><span>INVESTOR HUB</span><span>PIPELINE</span><span>FUNDRAISING</span><span>STRATEGY</span><span>FOLLOW-UP</span>
+        <span>DRONEPAD</span><span>INVESTOR HUB</span><span>PIPELINE</span><span>FUNDRAISING</span><span>STRATEGY</span><span>FOLLOW-UP</span>
+      </div>
+    </section>
+
+    <section class="overview-grid reveal" id="overview-block">
+      <article class="story-card">
+        <span class="kicker" data-i18n="dashboard.card1Kicker">INTRODUZIONE</span>
+        <h2 class="light-sweep" data-i18n="dashboard.card1Title">Una base ordinata per il lavoro sugli investitori.</h2>
+        <p data-i18n="dashboard.card1Text">Questa home raccoglie il senso del progetto e introduce l'area più importante ad oggi: la pipeline investitori, con tutti i prospect, i contatti e i prossimi passi.</p>
+      </article>
+      <article class="story-card">
+        <span class="kicker" data-i18n="dashboard.card2Kicker">OPERATIVITÀ</span>
+        <h2 class="light-sweep" data-i18n="dashboard.card2Title">Meno confusione, più controllo.</h2>
+        <p data-i18n="dashboard.card2Text">Ogni investitore ha una scheda dedicata, uno stadio, una cronologia di attività e una prossima azione: così puoi mostrare subito a che punto sei arrivato.</p>
+      </article>
+      <article class="story-card">
+        <span class="kicker" data-i18n="dashboard.card3Kicker">VISIONE</span>
+        <h2 class="light-sweep" data-i18n="dashboard.card3Title">Grafica immersiva, uso concreto.</h2>
+        <p data-i18n="dashboard.card3Text">Effetti visivi, immagini e scritte animate restano presenti, ma al servizio di una piattaforma chiara e funzionale.</p>
+      </article>
+    </section>
+
+    <section class="metric-grid reveal" id="dashboardMetrics"></section>
+
+    <section class="image-strip reveal">
+      <article class="image-card">
+        <img src="assets/hero-drone.png" alt="eVTOL concept" />
+        <div class="image-card-copy">
+          <span class="kicker" data-i18n="dashboard.img1Kicker">CONCEPT</span>
+          <h3 data-i18n="dashboard.img1Title">Una visione da trasformare in opportunità.</h3>
+        </div>
+      </article>
+      <article class="image-card">
+        <img src="assets/hero-orbital.png" alt="Orbital platform concept" />
+        <div class="image-card-copy">
+          <span class="kicker" data-i18n="dashboard.img2Kicker">POSITIONING</span>
+          <h3 data-i18n="dashboard.img2Title">Presentare Dronepad in modo credibile e memorabile.</h3>
+        </div>
+      </article>
+    </section>
+
+    <section class="dashboard-grid reveal">
+      <article class="panel">
+        <div class="panel-head">
+          <div>
+            <span class="kicker" data-i18n="dashboard.funnelKicker">PIPELINE</span>
+            <h2 data-i18n="dashboard.funnelTitle">Distribuzione per stadio</h2>
+          </div>
+        </div>
+        <div class="funnel-grid" id="dashboardFunnel"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <div>
+            <span class="kicker" data-i18n="dashboard.nextKicker">PROSSIME AZIONI</span>
+            <h2 data-i18n="dashboard.nextTitle">Follow-up in agenda</h2>
+          </div>
+          <a class="text-link" href="pipeline.html" data-i18n="dashboard.manage">Gestisci ↗</a>
+        </div>
+        <div class="followup-list" id="dashboardFollowups"></div>
+      </article>
+    </section>
+
+    <section class="panel reveal">
+      <div class="panel-head">
+        <div>
+          <span class="kicker" data-i18n="dashboard.activityKicker">ATTIVITÀ RECENTE</span>
+          <h2 data-i18n="dashboard.activityTitle">Cosa è stato fatto</h2>
+        </div>
+      </div>
+      <div class="activity-stream" id="dashboardActivities"></div>
+    </section>
+  </main>
+
+  <nav class="mobile-nav">
+    <a href="index.html" class="active"><span>⌂</span><b data-i18n="nav.dashboard">Dashboard</b></a>
+    <a href="pipeline.html"><span>↗</span><b data-i18n="nav.pipeline">Pipeline</b></a>
+  </nav>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
