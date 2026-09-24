@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#03070b" />
+  <meta name="description" content="Dronepad HQ — piattaforma privata per prototipo, investitori, partner, data room e roadmap." />
+  <title>Dronepad HQ — Mission Control</title>
+  <link rel="preload" href="assets/generated/dronepad-platform.png" as="image" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="space" aria-hidden="true"></canvas>
+  <div id="spaceShade" aria-hidden="true"></div>
+  <div id="noise" aria-hidden="true"></div>
+
+  <div class="hud-corner tl" aria-hidden="true">+</div>
+  <div class="hud-corner tr" aria-hidden="true">+</div>
+  <div class="hud-corner bl" aria-hidden="true">+</div>
+  <div class="hud-corner br" aria-hidden="true">+</div>
+
+  <header class="topbar">
+    <a class="brand-mini" href="#hero" aria-label="Dronepad HQ home">
+      <img src="assets/dronepad-logo.png" alt="Dronepad Italy" />
+      <div>
+        <strong>DRONEPAD HQ</strong>
+        <span id="brandSub">Mission Control</span>
+      </div>
+    </a>
+
+    <nav class="nav" id="mainNav" aria-label="Navigazione principale">
+      <a href="#hero" data-nav="hero"><span>01</span><b data-i18n="nav.hero">Inizio</b></a>
+      <a href="#overview" data-nav="overview"><span>02</span><b data-i18n="nav.overview">Overview</b></a>
+      <a href="#platform" data-nav="platform"><span>03</span><b data-i18n="nav.platform">Piattaforma</b></a>
+      <a href="#prototype" data-nav="prototype"><span>04</span><b data-i18n="nav.prototype">Prototipo</b></a>
+      <a href="#investors" data-nav="investors"><span>05</span><b data-i18n="nav.investors">Investitori</b></a>
+      <a href="#ecosystem" data-nav="ecosystem"><span>06</span><b data-i18n="nav.ecosystem">Ecosistema</b></a>
+      <a href="#tasks" data-nav="tasks"><span>07</span><b data-i18n="nav.tasks">Azioni</b></a>
+    </nav>
+
+    <div class="top-actions">
+      <div class="lang-switch" id="langSwitch" aria-label="Language switcher">
+        <button class="active" data-lang="it" type="button">IT</button>
+        <button data-lang="en" type="button">EN</button>
+      </div>
+      <button class="cloud-status" id="cloudStatusBtn" type="button" title="Stato cloud">
+        <i></i><span id="cloudStatusText">PRIVATE WORKSPACE</span>
+      </button>
+      <button class="ghost desktop-action" id="editModeBtn" type="button">Modifica</button>
+      <button class="ghost desktop-action" id="exportBtn" type="button" data-i18n="top.export">Esporta JSON</button>
+      <button class="account-btn" id="accountBtn" type="button" aria-label="Account"><span id="accountInitial">A</span></button>
+      <button class="ghost menu-toggle" id="menuToggle" type="button" aria-label="Apri menu">☰</button>
+    </div>
+  </header>
+
+  <div class="progress" aria-hidden="true"><i id="progressFill"></i><span data-i18n="top.progress">Journey</span></div>
+  <div class="scroll-hint" aria-hidden="true"><i></i><span data-i18n="top.scroll">Scorri per esplorare</span></div>
+  <div class="coords" aria-hidden="true"><span id="coordA">X 00.000</span><span id="coordB">Z 00.000</span></div>
+
+  <main id="pageRoot">
+    <section class="hero section-shell" id="hero">
+      <div class="section-code">00 / MISSION CONTROL</div>
+
+      <div class="hero-copy" data-depth="0.14">
+        <div class="eyebrow" data-i18n="hero.eyebrow">DALL'IP PROTETTA ALL'INFRASTRUTTURA OPERATIVA</div>
+        <h1 data-i18n-html="hero.title">COSTRUIRE IL PRIMO<br><span class="neon-word">DRONEPAD REALE.</span></h1>
+        <p data-i18n="hero.body">Un centro operativo immersivo per trasformare brevetti, know-how e visione in prototipo, sito pilota, capitale e industrializzazione.</p>
+        <div class="actions">
+          <a class="btn primary" href="#investors" data-i18n="hero.cta1">Apri pipeline investitori</a>
+          <a class="btn secondary" href="#prototype" data-i18n="hero.cta2">Prontezza prototipo</a>
+        </div>
+        <div class="hero-meta" id="heroMeta"></div>
+      </div>
+
+      <div class="hero-visual visual-stage" data-depth="0.08">
+        <div class="visual-orbit" aria-hidden="true"></div>
+        <img class="hero-platform" src="assets/generated/dronepad-platform.png" alt="Concept futuristico della piattaforma Dronepad" />
+        <img class="hero-orbit-asset" src="assets/generated/dronepad-orbit.png" alt="" aria-hidden="true" />
+        <div class="floating-chip c1"><span>IP</span><b>PROTECTED</b></div>
+        <div class="floating-chip c2"><span>CAPITAL</span><b>PIPELINE</b></div>
+        <div class="floating-chip c3"><span>BUILD</span><b>PROTOTYPE</b></div>
+      </div>
+    </section>
+
+    <section class="signal" aria-label="Aree di lavoro">
+      <div class="signal-track" id="signalTrack"></div>
+    </section>
+
+    <section class="section-shell" id="overview">
+      <div class="section-code">01 / OVERVIEW</div>
+      <div class="section-head reveal" data-depth="0.05">
+        <div>
+          <div class="eyebrow" data-i18n="overview.eyebrow">QUADRO DI PROGETTO</div>
+          <h2 data-i18n-html="overview.title">DRONEPAD,<br><span class="neon-word">IN UNA SOLA VISTA.</span></h2>
+        </div>
+        <p data-i18n="overview.body">La base operativa del progetto: cosa esiste già, cosa manca e cosa dobbiamo dimostrare per trasformare la teoria in una realizzazione concreta.</p>
+      </div>
+
+      <div class="metric-grid reveal" id="metricGrid"></div>
+
+      <div class="split-grid overview-feature">
+        <article class="panel reveal">
+          <span class="kicker" data-i18n="overview.coreKicker">CONCETTO</span>
+          <h3 data-i18n="overview.coreTitle">Infrastruttura modulare di atterraggio per velivoli a decollo e atterraggio verticale</h3>
+          <p class="lead" data-i18n="overview.coreBody">Dronepad è concepito come infrastruttura integrata e modulare per operazioni di decollo/atterraggio verticale, inserita nell'ecosistema Advanced Air Mobility.</p>
+          <div class="fact-list" id="factList"></div>
+        </article>
+
+        <article class="panel transparent-visual reveal delay-1 floating-panel">
+          <div class="asset-halo"></div>
+          <img src="assets/generated/dronepad-landing.png" alt="Concept di eVTOL in atterraggio su Dronepad" />
+          <div class="caption" data-i18n="overview.caption">Concept visuale generato per Dronepad HQ</div>
+        </article>
+      </div>
+
+      <div class="three-grid reveal" id="overviewCards"></div>
+    </section>
+
+    <section class="section-shell alt" id="platform">
+      <div class="section-code">02 / PLATFORM</div>
+      <div class="section-head reveal" data-depth="0.04">
+        <div>
+          <div class="eyebrow" data-i18n="platform.eyebrow">ARCHITETTURA DELLA PIATTAFORMA</div>
+          <h2 data-i18n-html="platform.title"><span class="neon-word">INFRASTRUTTURA DIGITALE</span><br>DEL PROGETTO.</h2>
+        </div>
+        <p data-i18n="platform.body">Dronepad HQ riunisce in un unico workspace privato dati, documenti, investitori, attività, stato del prototipo e decisioni operative.</p>
+      </div>
+
+      <div class="platform-hero reveal">
+        <div class="platform-copy">
+          <span class="kicker">DRONEPAD HQ / PRIVATE STACK</span>
+          <h3 data-i18n="platform.stackTitle">Il sistema operativo digitale di Dronepad.</h3>
+          <p data-i18n="platform.stackBody">Repository privato, autenticazione, database e storage riservato lavorano insieme per mantenere il progetto ordinato, accessibile e controllato.</p>
+          <div class="cloud-mini-status" id="cloudMiniStatus"><i></i><span>PRIVATE STACK</span></div>
+        </div>
+        <div class="platform-asset floating-panel">
+          <img src="assets/generated/dronepad-orbit.png" alt="Interfaccia orbitale astratta di Dronepad Mission Control" />
+        </div>
+      </div>
+
+      <div class="architecture-wrap reveal">
+        <div class="architecture-line"></div>
+        <div class="architecture-grid" id="architectureGrid"></div>
+      </div>
+
+      <div class="dashboard-grid">
+        <article class="panel reveal">
+          <div class="panel-head">
+            <div>
+              <span class="kicker" data-i18n="platform.todoKicker">STACK OPERATIVO</span>
+              <h3 data-i18n="platform.todoTitle">Componenti del sistema</h3>
+            </div>
+            <span class="tag accent">PRIVATE SYSTEM</span>
+          </div>
+          <div class="path-list" id="platformPriorities"></div>
+        </article>
+
+        <article class="panel security-card reveal delay-1">
+          <div class="security-radar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <span class="kicker" data-i18n="platform.secureKicker">SECURITY BY DESIGN</span>
+          <h3 data-i18n="platform.secureTitle">Niente file sensibili in pubblico.</h3>
+          <p data-i18n="platform.secureBody">Business plan, documenti legali, cap table, preventivi e contatti strategici devono vivere in un ambiente autenticato con storage privato.</p>
+          <div class="security-points">
+            <span>PRIVATE REPO</span><span>AUTH</span><span>RLS</span><span>PRIVATE BUCKET</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell" id="prototype">
+      <div class="section-code">03 / PROTOTYPE</div>
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow" data-i18n="prototype.eyebrow">PROTOTYPE READINESS</div>
+          <h2 data-i18n-html="prototype.title">TRASFORMARE IL CONCEPT<br><span class="neon-word">IN UN BUILD PLAN.</span></h2>
+        </div>
+        <p data-i18n="prototype.body">Qui costruiamo il vero fabbisogno finanziario del primo prototipo, legando ogni euro a un deliverable concreto.</p>
+      </div>
+
+      <div class="prototype-layout">
+        <div>
+          <div class="progress-shell reveal">
+            <div class="progress-head"><span data-i18n="prototype.progressLabel">Prontezza prototipo</span><b id="prototypePct">0%</b></div>
+            <div class="progress-bar"><i id="prototypeBar"></i></div>
+          </div>
+          <div class="checklist reveal" id="prototypeChecklist"></div>
+        </div>
+
+        <aside class="prototype-visual reveal delay-1 floating-panel">
+          <div class="prototype-visual-frame">
+            <img src="assets/generated/dronepad-exploded.png" alt="Concept esploso della piattaforma Dronepad" />
+          </div>
+          <p data-i18n="prototype.visualNote">Esploso concettuale del sistema Dronepad: struttura, piattaforma, impianti, sensori e componenti vengono gestiti nel workstream tecnico del prototipo.</p>
+        </aside>
+      </div>
+
+      <article class="panel reveal">
+        <div class="panel-head">
+          <div>
+            <span class="kicker" data-i18n="prototype.fundsKicker">USE OF FUNDS</span>
+            <h3 data-i18n="prototype.fundsTitle">Il capitale deve seguire le evidenze</h3>
+          </div>
+          <span class="tag neutral" data-i18n="prototype.toQuantify">DA QUANTIFICARE</span>
+        </div>
+        <div class="fund-grid" id="fundGrid"></div>
+      </article>
+    </section>
+
+    <section class="section-shell alt" id="investors">
+      <div class="section-code">04 / CAPITAL</div>
+      <div class="page-title compact reveal">
+        <div>
+          <div class="eyebrow" data-i18n="investors.eyebrow">CRM CAPITALI & NETWORK</div>
+          <h2 data-i18n-html="investors.title">PIPELINE<br><span class="neon-word">INVESTITORI.</span></h2>
+          <p data-i18n="investors.body">Ogni nome deve avere una ragione, una fonte e una prossima azione. Nessuna lista casuale.</p>
+        </div>
+        <button class="btn primary small" id="addInvestorBtn" type="button" data-i18n="investors.add">+ Aggiungi prospect</button>
+      </div>
+
+      <div class="filters reveal">
+        <input id="investorSearch" type="search" autocomplete="off" />
+        <select id="typeFilter"></select>
+        <select id="statusFilter"></select>
+      </div>
+
+      <div class="crm-wrap reveal desktop-crm">
+        <table class="crm-table">
+          <thead>
+            <tr>
+              <th data-i18n="investors.tableProspect">Prospect</th>
+              <th data-i18n="investors.tableType">Tipo</th>
+              <th data-i18n="investors.tableFit">Fit / tesi</th>
+              <th data-i18n="investors.tableVerification">Verifica</th>
+              <th data-i18n="investors.tableStage">Stadio</th>
+              <th data-i18n="investors.tableNext">Prossima azione</th>
+            </tr>
+          </thead>
+          <tbody id="investorRows"></tbody>
+        </table>
+      </div>
+      <div class="crm-mobile reveal" id="investorCards"></div>
+
+      <article class="panel reveal">
+        <div class="panel-head"><div><span class="kicker" data-i18n="investors.pipelineKicker">PIPELINE</span><h3 data-i18n="investors.pipelineTitle">Distribuzione per stadio</h3></div></div>
+        <div class="pipeline" id="pipeline"></div>
+      </article>
+    </section>
+
+    <section class="section-shell" id="ecosystem">
+      <div class="section-code">05 / ECOSYSTEM</div>
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow" data-i18n="ecosystem.eyebrow">PARTNER, MERCATO, REGOLATORIO, DATA ROOM</div>
+          <h2 data-i18n-html="ecosystem.title">CAPITALE È SOLO<br><span class="neon-word">UNA PARTE.</span></h2>
+        </div>
+        <p data-i18n="ecosystem.body">Per arrivare al prototipo servono partner industriali, conoscenza del mercato, workstream regolatorio e una data room sicura e ordinata.</p>
+      </div>
+
+      <div class="ecosystem-grid">
+        <article class="panel reveal"><div class="panel-head"><div><span class="kicker" data-i18n="ecosystem.partnersKicker">STRATEGIC PARTNERS</span><h3 data-i18n="ecosystem.partnersTitle">Soggetti da coinvolgere</h3></div></div><div class="partner-grid" id="partnerGrid"></div></article>
+        <article class="panel reveal delay-1"><div class="panel-head"><div><span class="kicker" data-i18n="ecosystem.marketKicker">MARKET INTEL</span><h3 data-i18n="ecosystem.marketTitle">Lettura dell'ecosistema</h3></div></div><div class="market-grid" id="marketGrid"></div></article>
+        <article class="panel reveal"><div class="panel-head"><div><span class="kicker" data-i18n="ecosystem.regKicker">REGULATORY</span><h3 data-i18n="ecosystem.regTitle">Track normativo</h3></div></div><div class="reg-list" id="regList"></div></article>
+        <article class="panel reveal delay-1 data-room-panel">
+          <div class="panel-head">
+            <div><span class="kicker" data-i18n="ecosystem.dataKicker">DATA ROOM</span><h3 data-i18n="ecosystem.dataTitle">Unica fonte di verità</h3></div>
+            <label class="btn secondary small upload-label" id="uploadLabel">
+              <input type="file" id="documentUpload" hidden />
+              <span data-i18n="ecosystem.upload">Carica file</span>
+            </label>
+          </div>
+          <div class="storage-note" id="storageNote"><i></i><span data-i18n="ecosystem.storageLocal">Archivio documentale privato del workspace.</span></div>
+          <div class="document-grid" id="documentGrid"></div>
+          <div class="uploaded-files" id="uploadedFiles"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell final" id="tasks">
+      <div class="section-code">06 / EXECUTION</div>
+      <div class="page-title compact reveal center">
+        <div>
+          <div class="eyebrow" data-i18n="tasks.eyebrow">EXECUTION BOARD</div>
+          <h2 data-i18n-html="tasks.title">LE PROSSIME<br><span class="neon-word">AZIONI.</span></h2>
+          <p data-i18n="tasks.body">Il progetto avanza quando ogni open point ha un owner, una scadenza e un output.</p>
+        </div>
+        <button class="btn primary small" id="addTaskBtn" type="button" data-i18n="tasks.add">+ Aggiungi task</button>
+      </div>
+
+      <div class="dashboard-grid final-top">
+        <article class="panel reveal"><div class="panel-head"><div><span class="kicker" data-i18n="tasks.criticalKicker">CRITICAL PATH</span><h3 data-i18n="tasks.criticalTitle">Nodi operativi</h3></div><span class="tag neutral">MISSION CONTROL</span></div><div class="path-list" id="criticalPath"></div></article>
+        <article class="panel reveal delay-1"><div class="panel-head"><div><span class="kicker" data-i18n="tasks.roadmapKicker">ROADMAP</span><h3 data-i18n="tasks.roadmapTitle">Sei gate verso il mercato</h3></div><span class="tag accent">2026 →</span></div><div class="roadmap" id="roadmap"></div></article>
+      </div>
+
+      <div class="task-board reveal" id="taskBoard"></div>
+
+      <article class="panel workspace-notes reveal" id="workspaceNotesPanel">
+        <div class="panel-head">
+          <div>
+            <span class="kicker">PROJECT NOTES</span>
+            <h3 id="notesTitle">Note operative</h3>
+          </div>
+          <span class="tag accent" id="notesSaved">SALVATO</span>
+        </div>
+        <textarea id="projectNotes" placeholder="Scrivi qui appunti, decisioni, follow-up, contatti da richiamare, idee per il prototipo o note per il prossimo meeting..."></textarea>
+      </article>
+
+      <div class="final-visual reveal">
+        <img src="assets/generated/dronepad-platform.png" alt="Dronepad platform concept" />
+        <div>
+          <span class="kicker">DRONEPAD HQ / MISSION CONTROL</span>
+          <h3 data-i18n="tasks.finalTitle">Dal database al primo Dronepad reale.</h3>
+          <p data-i18n="tasks.finalBody">La piattaforma diventa il luogo unico in cui raccogliere evidenze, contatti, decisioni, documenti e progressi.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="edit-hint" id="editHint">
+    <span>MODALITÀ MODIFICA</span>
+    <b>Clicca sui testi evidenziati, scrivi e poi premi Salva.</b>
+  </div>
+
+  <nav class="mobile-dock" aria-label="Navigazione mobile">
+    <a href="#hero" data-nav="hero"><span>⌂</span><b data-i18n="nav.hero">Inizio</b></a>
+    <a href="#prototype" data-nav="prototype"><span>◉</span><b data-i18n="nav.prototype">Prototipo</b></a>
+    <a href="#investors" data-nav="investors"><span>↗</span><b data-i18n="nav.investors">Investitori</b></a>
+    <a href="#ecosystem" data-nav="ecosystem"><span>◎</span><b data-i18n="nav.ecosystem">Ecosistema</b></a>
+    <a href="#tasks" data-nav="tasks"><span>✓</span><b data-i18n="nav.tasks">Azioni</b></a>
+  </nav>
+
+  <dialog id="investorDialog" class="dialog">
+    <form method="dialog" id="investorForm">
+      <div class="dialog-head"><h2 data-i18n="modalInvestor.title">Aggiungi prospect</h2><button value="cancel" aria-label="Chiudi">×</button></div>
+      <label><span data-i18n="modalInvestor.name">Nome</span><input name="name" required /></label>
+      <label><span data-i18n="modalInvestor.type">Tipo</span><select name="type"><option>VC</option><option>Corporate VC</option><option>Incubator / Accelerator</option><option>Technology Transfer</option><option>Public / Export Finance</option><option>Advisor</option><option>Family Office</option><option>Industrial Partner</option></select></label>
+      <label><span data-i18n="modalInvestor.fit">Perché è rilevante</span><textarea name="fit" rows="3" required></textarea></label>
+      <label><span data-i18n="modalInvestor.stage">Stadio</span><select name="stage"><option>Research</option><option>Qualified</option><option>Contacted</option><option>Meeting</option><option>NDA / DD</option><option>Term Sheet</option></select></label>
+      <label><span data-i18n="modalInvestor.next">Prossima azione</span><input name="next" /></label>
+      <menu><button value="cancel" class="btn secondary small" data-i18n="modal.cancel">Annulla</button><button value="default" class="btn primary small" id="saveInvestor" data-i18n="modal.save">Salva</button></menu>
+    </form>
+  </dialog>
+
+  <dialog id="taskDialog" class="dialog">
+    <form method="dialog" id="taskForm">
+      <div class="dialog-head"><h2 data-i18n="modalTask.title">Aggiungi task</h2><button value="cancel" aria-label="Chiudi">×</button></div>
+      <label><span data-i18n="modalTask.task">Task</span><input name="title" required /></label>
+      <label><span data-i18n="modalTask.stream">Workstream</span><select name="stream"><option>Prototype</option><option>Fundraising</option><option>IP / Legal</option><option>Market</option><option>Regulatory</option><option>Data Room</option></select></label>
+      <label><span data-i18n="modalTask.status">Stato</span><select name="status"><option>Now</option><option>Next</option><option>Waiting</option><option>Done</option></select></label>
+      <menu><button value="cancel" class="btn secondary small" data-i18n="modal.cancel">Annulla</button><button value="default" class="btn primary small" id="saveTask" data-i18n="modal.save">Salva</button></menu>
+    </form>
+  </dialog>
+
+  <dialog id="authDialog" class="dialog auth-dialog">
+    <form id="authForm">
+      <div class="dialog-head"><div><span class="kicker">PRIVATE ACCESS</span><h2 data-i18n="auth.title">Accedi a Dronepad HQ</h2></div><button type="button" id="closeAuth" aria-label="Chiudi">×</button></div>
+      <p class="dialog-copy" id="authIntro" data-i18n="auth.body">Quando Supabase è configurato, questo accesso protegge CRM, task e data room.</p>
+      <label><span>Email</span><input type="email" name="email" autocomplete="email" required /></label>
+      <label><span>Password</span><input type="password" name="password" autocomplete="current-password" required /></label>
+      <div class="auth-error" id="authError"></div>
+      <menu><button type="button" class="btn secondary small" id="signOutBtn" data-i18n="auth.signout">Esci</button><button type="submit" class="btn primary small" data-i18n="auth.signin">Accedi</button></menu>
+    </form>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="cloud.js"></script>
+  <script src="app.js"></script>
+  <script src="enhancements.js"></script>
+  <script>
+    // Fail-safe: the interface must never remain black if an optional script,
+    // CDN, browser extension or animation API fails.
+    window.addEventListener('load', function(){
+      setTimeout(function(){
+        if(document.body.dataset.appReady !== '1'){
+          document.querySelectorAll('.reveal').forEach(function(el){
+            el.classList.remove('reveal-ready');
+            el.classList.add('visible');
+          });
+          document.querySelectorAll('[data-depth]').forEach(function(el){
+            el.style.transform = 'none';
+          });
+        }
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
