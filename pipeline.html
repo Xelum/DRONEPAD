@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#02070c" />
+  <meta name="description" content="Dronepad Investor Hub — pipeline investitori." />
+  <title>Pipeline Investitori — Dronepad</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="pipeline">
+  <div class="ambient" aria-hidden="true">
+    <span class="glow glow-a"></span>
+    <span class="glow glow-b"></span>
+  </div>
+  <div class="neon-rain" aria-hidden="true">
+    <span class="fall f1"></span>
+    <span class="fall f2"></span>
+    <span class="fall f3"></span>
+  </div>
+
+  <header class="app-header">
+    <a class="brand" href="index.html">
+      <img src="assets/dronepad-logo.png" alt="Dronepad Italy" />
+      <div><strong>DRONEPAD</strong><span>Investor Hub</span></div>
+    </a>
+    <nav class="top-nav">
+      <a href="index.html" data-i18n="nav.dashboard">Dashboard</a>
+      <a class="active" href="pipeline.html" data-i18n="nav.pipeline">Pipeline investitori</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch">
+        <button data-lang="it" class="active">IT</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <button class="ghost-btn" id="backupBtn" data-i18n="actions.backup">Backup dati</button>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section class="page-hero compact-hero reveal">
+      <div>
+        <span class="eyebrow" data-i18n="pipeline.eyebrow">CRM INVESTITORI</span>
+        <h1 data-i18n-html="pipeline.title">PIPELINE<br><span class="neon-text">INVESTITORI.</span></h1>
+        <p data-i18n="pipeline.intro">Ogni prospect ha uno stadio, una priorità, una cronologia e una prossima azione. Clicca su un nome per aprire la scheda completa.</p>
+      </div>
+      <button class="primary-btn" id="addInvestorBtn" data-i18n="actions.addInvestor">+ Aggiungi prospect</button>
+    </section>
+
+    <section class="mini-metrics reveal" id="pipelineMetrics"></section>
+
+    <section class="filter-bar reveal">
+      <input id="searchInput" type="search" placeholder="Cerca nome, tipo, referente o note..." />
+      <select id="stageFilter"></select>
+      <select id="typeFilter"></select>
+      <select id="priorityFilter"></select>
+    </section>
+
+    <section class="panel reveal pipeline-panel">
+      <div class="panel-head">
+        <div>
+          <span class="kicker" data-i18n="pipeline.listKicker">PROSPECT</span>
+          <h2 data-i18n="pipeline.listTitle">Elenco investitori</h2>
+        </div>
+        <span class="tag" id="pipelineCount">0</span>
+      </div>
+
+      <div class="pipeline-table-wrap desktop-only">
+        <table class="pipeline-table">
+          <thead>
+            <tr>
+              <th data-i18n="table.name">Prospect</th>
+              <th data-i18n="table.type">Tipo</th>
+              <th data-i18n="table.stage">Stadio</th>
+              <th data-i18n="table.priority">Priorità</th>
+              <th data-i18n="table.last">Ultimo contatto</th>
+              <th data-i18n="table.next">Prossima azione</th>
+              <th data-i18n="table.actions">Azioni</th>
+            </tr>
+          </thead>
+          <tbody id="pipelineRows"></tbody>
+        </table>
+      </div>
+
+      <div class="mobile-cards mobile-only" id="pipelineCards"></div>
+    </section>
+  </main>
+
+  <nav class="mobile-nav">
+    <a href="index.html"><span>⌂</span><b data-i18n="nav.dashboard">Dashboard</b></a>
+    <a href="pipeline.html" class="active"><span>↗</span><b data-i18n="nav.pipeline">Pipeline</b></a>
+  </nav>
+
+  <dialog id="investorDialog" class="modal">
+    <form id="investorForm">
+      <div class="modal-head">
+        <div><span class="kicker">INVESTOR CRM</span><h2 id="investorDialogTitle">Aggiungi prospect</h2></div>
+        <button class="close-btn" type="button" data-close="investorDialog">×</button>
+      </div>
+      <input type="hidden" name="id" />
+      <div class="form-grid">
+        <label><span data-i18n="form.name">Nome</span><input name="name" required /></label>
+        <label><span data-i18n="form.type">Tipo</span><select name="type"></select></label>
+        <label><span data-i18n="form.stage">Stadio</span><select name="stage"></select></label>
+        <label><span data-i18n="form.priority">Priorità</span><select name="priority"></select></label>
+        <label><span data-i18n="form.contactName">Referente</span><input name="contactName" /></label>
+        <label><span data-i18n="form.contactRole">Ruolo</span><input name="contactRole" /></label>
+        <label><span>Email</span><input name="contactEmail" type="email" /></label>
+        <label><span data-i18n="form.phone">Telefono</span><input name="contactPhone" /></label>
+        <label><span data-i18n="form.website">Sito / Link</span><input name="website" type="url" placeholder="https://..." /></label>
+        <label><span data-i18n="form.lastContact">Ultimo contatto</span><input name="lastContact" type="date" /></label>
+        <label><span data-i18n="form.nextDate">Prossimo follow-up</span><input name="nextDate" type="date" /></label>
+      </div>
+      <label><span data-i18n="form.thesis">Perché è rilevante / tesi</span><textarea name="thesis" rows="3"></textarea></label>
+      <label><span data-i18n="form.source">Fonte</span><input name="source" /></label>
+      <label><span data-i18n="form.nextAction">Prossima azione</span><textarea name="nextAction" rows="2"></textarea></label>
+      <label><span data-i18n="form.notes">Note interne</span><textarea name="notes" rows="3"></textarea></label>
+      <menu>
+        <button type="button" class="secondary-btn" data-close="investorDialog" data-i18n="actions.cancel">Annulla</button>
+        <button type="submit" class="primary-btn" data-i18n="actions.save">Salva</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
